@@ -1,7 +1,14 @@
 # This file contains the fundamental sorts, implemented in python.
 
 def selection_sort(arr):
-    pass
+    # Implement the selection sort algorithm
+    for i in range(len(arr)):
+        min_index = i
+        for j in range(i+1,len(arr)):
+            if arr[j] < arr[min_index]:
+                min_index = j
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+    return arr
 
 def bubble_sort(arr):
     length = len(arr)
@@ -14,7 +21,3 @@ def bubble_sort(arr):
                 print(arr)
         if not swapped: break
     return arr
-
-l = [5, 3, 4, 2, 1]
-
-print(bubble_sort(l))
