@@ -37,3 +37,16 @@ def quicksort(arr):
             swap_index += 1
     
     return quicksort(arr[:pivot_index]) + quicksort(arr[pivot_index:])
+
+def insertion_sort(arr):
+    length = len(arr)
+    result = [arr[0]]
+    for i in range(1, length):
+        if arr[i] < result[-1]:
+            for j in range(i):
+                if arr[i] < result[j]:
+                    result.insert(j, arr[i])
+                    break
+        else:
+            result.append(arr[i])
+    return result
