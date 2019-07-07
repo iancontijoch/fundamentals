@@ -20,3 +20,20 @@ def bubble_sort(arr):
                 arr[j], arr[j+1] = arr[j+1], arr[j]
         if not swapped: break
     return arr
+
+def quicksort(arr):
+    length = len(arr)
+
+    if length == 1:
+        return arr
+        
+    swap_index, pivot_index = 0, length-1
+
+    while swap_index < pivot_index:
+        if arr[swap_index] > arr[pivot_index]:
+            arr[swap_index], arr[pivot_index-1], arr[pivot_index] = arr[pivot_index-1], arr[pivot_index], arr[swap_index]
+            pivot_index -= 1
+        else:
+            swap_index += 1
+    
+    return quicksort(arr[:pivot_index]) + quicksort(arr[pivot_index:])
